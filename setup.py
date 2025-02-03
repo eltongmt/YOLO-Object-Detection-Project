@@ -38,7 +38,7 @@ REQUIRED = [i.strip() for i in open(HERE / 'requirements.txt') if not i.startswi
 
 setup(
     name='yolo-obj-detector',
-    version='0.1.0',
+    version='0.1.1',
     description='A package to train a custom YOLOv8 model',
     author='Jacob Rivera',
     author_email='jakemichaelrivera32@gmail.com',
