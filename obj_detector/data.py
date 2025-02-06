@@ -718,8 +718,14 @@ class DataMaster():
                         #with open(r"C:\Users\multimaster\documents\retinaFace_dilab\metadata\debugg-lerp.txt", "a") as f:
                             # delete non interpolated file and change its extension
                         curr = next_files[fix]
-                        next = curr[:-4] + "_lerp.txt"
-                        smooth_files.append(curr)
+                        parts = curr[:-4].split("_")
+
+                        if parts[-1] == "lerp":
+                            next = curr
+                        else:
+                            next = curr[:-4] + "_lerp.txt"
+                            smooth_files.append(curr)
+                            shutil.copyfile(curr, next)
                         self.add_line_to_txt(next, i, avg_annot[fix])
                     missed = 0
                     break
@@ -749,10 +755,12 @@ class DataMaster():
             temp_smooth = self.check_window(text_files[i], look_aheads)
             
             for temp in temp_smooth:
-                smooth_files.append(temp)
+                if temp not in smooth_files:
+                    smooth_files.append(temp)
 
+        
         # remove old files that were lerped 
-        for rm_file in smooth_files:
+        for rm_file in tqdm(smooth_files, desc="cleaning up files.."):
             ## DEGUGGING ## 
             #temp_path = rm_file.split("\\")
             #temp_path.pop(5)
