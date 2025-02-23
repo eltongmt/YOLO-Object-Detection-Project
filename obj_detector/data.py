@@ -831,4 +831,4 @@ class DataMaster():
         out.release()
         cv2.destroyAllWindows()
 
-        print(f"Video saved to: {output_video_name}")
+        print(f"Video saved to: {output_video_name}\n")
