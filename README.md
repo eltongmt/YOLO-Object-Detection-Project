@@ -1,17 +1,5 @@
 # YOLO Object Detection Project
-Scripts and pipeline to support training a YOLOv8 Object Detection model from custom dataset. 
-
-Runnable scripts can be found under scripts/ dir. It is not requires to have an active venv, as the bash scripts will activate and deactivate the venv automatically. If using a Windows machine, \ vs / will have to be hand edited.
-
-In future edits, this might become a feature but for now, sorry! I have begun to use Path() objects for many file paths rather than strings, so if you see a / operation with a Path object, it is probably correct, so do not blindly change / to \\ or vice versa.
-
-To come:
-- scripts to train a YOLO classifier (they exist in the classifier/ but are not structured)
-- more examples, especially ones to include the different helper functions that make life easier, like extract frames from a video or detecting blur.
-- Better organization
-
-
-
+Scripts and pipeline to support training a YOLO Object Detection model (ultralytics) from custom dataset. 
 
 # Setting Up Your Python Environment
 
@@ -102,8 +90,5 @@ Similar to other prediction scripts, set desired variables and hit go. All defau
 
 ### scripts/py_scripts/ and scripts/sh_scripts/
 These directories contain scripts that were initially used to develop this project and run experiments. They can still be utilized, however are not as bullet proof as the example scripts. The structure of the project has changed significantly since these scripts have been updated. Please use them with caution.
-
-There is generally one shell script that calls one of the python scripts. This was to provide a simpler interface to call the python scripts rather than provide command line arguments. If one wishes to run the scripts, please give it your best shot :) 
-
 
 
