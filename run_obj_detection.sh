@@ -17,7 +17,7 @@ CHILD=1
 PARENT=0
 
 subID="__20250118_10108"
-subList="metadata/distributed_processing/fix_child_face_batch2.txt"
+subList="C:\Users\multimaster\documents\YOLO-Object-Detection-Project\metadata\partition_4.txt"
 
 ## PREDICTION ARGUMENTS  ##
 
@@ -33,13 +33,13 @@ post=1
 # RM will be true. The actions are performed in the following order RM -> PRED -> NORM -> SMOOTH -> VIDEO 
 # In case a subjects face predictions need be re run one must remove the existing predictions
 # this can be done by setting RM to 1
-RM=1
+RM=0
 # To create face predictions set the PRED argument to 1
-PRED=1
+PRED=0
 # To smooth predictions set SMOOTH to 1
-SMOOTH=1
+SMOOTH=0
 # To create a video with predictions set VIDEO to 1
-VIDEO=1
+VIDEO=0
 
 # The actions above can all be performed during one run, so for a new subject all the flags except 
 # RM will be true. The actions are performed in the following order RM -> PRED -> NORM -> SMOOTH -> VIDEO 
@@ -50,13 +50,13 @@ if ($many); then
     while read line;  do
         python "$exp_utils" "$expID" "$line" --CHILD "$CHILD" --PARENT "$PARENT" --RM "$RM" --PRED "$PRED" --SMOOTH "$SMOOTH" --VIDEO "$VIDEO" --pre "$pre" --post "$post"
         #FOR DEGUGGING echo "$line" >> metadata/final_list.txt
-    deactivate
     done < "$subList"
 else
     python "$exp_utils" "$expID" "$subID" --CHILD "$CHILD" --PARENT "$PARENT" --RM "$RM" --PRED "$PRED" --SMOOTH "$SMOOTH" --VIDEO "$VIDEO" --pre "$pre" --post "$post"
-    deactivate 
     #FOR DEGUGGING echo "$subID" >> metadata/final_list.txt
 fi
+
+deactivate
 
 ## fyi we call the script twice because they have to be exectued
 # in different environments, utralitytics can be installed and executed in
