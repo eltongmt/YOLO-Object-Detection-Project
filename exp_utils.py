@@ -33,9 +33,9 @@ predictor = PredictorModel(model_path)
 datamaster = DataMaster(model_path)
 
 
-def save_log(expID, subID, type):
+def save_log(expID, subID, cat_val):
      with open (r"C:\Users\multimaster\documents\YOLO-Object-Detection-Project\metadata\prediction-log.txt", "a") as file:
-            file.write(f"{expID} {subID} {datetime.datetime.now()} {type}\n")
+            file.write(f"{expID} {subID} {datetime.datetime.now()} {cat_val}\n")
 
 
 def predict_dyad(expID, subID, INPATH, CHILD, PARENT, PRED, RM, SMOOTH, VIDEO, pre, post):
@@ -140,6 +140,6 @@ def main():
             print("Script cancelled")
     else:
         predict_dyad(args.expID, args.subID, IN_PATH, args.CHILD, args.PARENT, args.PRED, args.RM, args.SMOOTH, args.VIDEO, args.pre, args.post)
-
+        
 if __name__ == "__main__":
     main()
