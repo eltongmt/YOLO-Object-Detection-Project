@@ -25,6 +25,7 @@ class Trainer():
         self.args['data'] = self.yaml
 
     def train(self, show_output: bool = True, data_split=False):
+        
         self.save_path = self.dataMaster.split_data_pipe(data_split=data_split)
         self.get_yaml()
         self.load_model()

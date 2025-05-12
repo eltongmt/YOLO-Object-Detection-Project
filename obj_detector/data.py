@@ -81,7 +81,7 @@ class DataMaster():
         self.class_dict = class_dict
         self.color_dict = color_dict
         self.save_path = save_path if save_path is not None else Path(self.dataset_path / f'{datetime.date.today().isoformat()}_Training-data')
-
+        self.yaml = None
         # Set a seed for reproducibility
         random.seed(constants.SEED) 
 
@@ -122,8 +122,9 @@ class DataMaster():
         random.shuffle(images)
         # Calculate the split point based on an split/1-split ratio ex: 80/20
         split_point = int(split * len(images))
-
-        if data_split: return self.save_path
+        
+        if data_split:
+            return self.save_path
         # copy train split
         for img in tqdm(images[:split_point], desc="Copying images"):
             try:
