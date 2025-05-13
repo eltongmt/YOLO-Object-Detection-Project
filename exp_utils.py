@@ -62,8 +62,8 @@ def predict_subject(expID, subID, REL_INPATH, agent, PRED, RM, SMOOTH, VIDEO, pr
         print("subject has no FOV frame folder")
         return False
 
-    OUTPATH = REL_INPATH / "supporting_files" / f"bbox_video_{agent}_face"
-    AN_PATH = REL_INPATH / "supporting_files" / f"bbox_annotations_{agent}_face"
+    OUTPATH = REL_INPATH / "supporting_files" / f"bbox_video_{agent}"
+    AN_PATH = REL_INPATH / "supporting_files" / f"bbox_annotations_{agent}"
 
     os.makedirs(OUTPATH, exist_ok=True)
     os.makedirs(AN_PATH, exist_ok=True)
@@ -140,6 +140,8 @@ def main():
             print("Script cancelled")
     else:
         predict_dyad(args.expID, args.subID, IN_PATH, args.CHILD, args.PARENT, args.PRED, args.RM, args.SMOOTH, args.VIDEO, args.pre, args.post)
-        
+
 if __name__ == "__main__":
     main()
+
+    
